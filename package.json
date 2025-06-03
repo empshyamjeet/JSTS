@@ -1,0 +1,26 @@
+{
+  "name": "jsts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empshyamjeet/JSTS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/empshyamjeet/JSTS/issues"
+  },
+  "homepage": "https://github.com/empshyamjeet/JSTS#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "playwright": "^1.52.0",
+    "typescript": "^5.8.3"
+  }
+}
