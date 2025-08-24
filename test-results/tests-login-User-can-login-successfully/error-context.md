@@ -1,0 +1,29 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - heading "Successfully Logged in..." [level=3] [ref=e5]
+    - link:
+      - /url: http://www.guru99.com/
+      - img
+  - paragraph [ref=e6]:
+    - generic [ref=e7]: © Copyright - Demo Guru99 2025
+    - link [ref=e8] [cursor=pointer]:
+      - /url: https://www.linkedin.com/company/guru99/
+      - img [ref=e9] [cursor=pointer]
+    - link [ref=e10] [cursor=pointer]:
+      - /url: https://www.facebook.com/Guru99Official
+      - img [ref=e11] [cursor=pointer]
+    - link [ref=e12] [cursor=pointer]:
+      - /url: https://twitter.com/guru99com
+      - img [ref=e13] [cursor=pointer]
+    - link [ref=e14] [cursor=pointer]:
+      - /url: https://www.guru99.com/newsletters.html
+      - img [ref=e15] [cursor=pointer]
+  - generic:
+    - link "Random Image":
+      - /url: https://guru99.link/recommends-zoho-project-jira-alternative
+      - paragraph:
+        - img "Random Image"
+```

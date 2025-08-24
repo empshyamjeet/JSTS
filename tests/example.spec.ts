@@ -1,35 +1,29 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+import { DashboardPage } from '../pages/DashboardPage';
 
 test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  const pwPage = new DashboardPage(page);
+  await pwPage.goto();
+  await pwPage.assertTitleContains(/Playwright/);
 });
 
 test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  const pwPage = new DashboardPage(page);
+  await pwPage.goto();
+  await pwPage.clickGetStarted();
+  await pwPage.expectInstallationHeadingVisible();
 });
 
+// Other tests with duplicated steps similarly refactored:
 test('has titless', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  const pwPage = new DashboardPage(page);
+  await pwPage.goto();
+  await pwPage.assertTitleContains(/Playwright/);
 });
 
 test('get started sslink', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  const pwPage = new DashboardPage(page);
+  await pwPage.goto();
+  await pwPage.clickGetStarted();
+  await pwPage.expectInstallationHeadingVisible();
 });
