@@ -1,22 +1,15 @@
-import { expect, Page, Locator } from '@playwright/test';
+// pages/DashboardPage.ts
+import { expect, Locator, Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class DashboardPage {
-  readonly page: Page;
+export class DashboardPage extends BasePage {
   readonly getStartedLink: Locator;
   readonly installationHeading: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.getStartedLink = page.getByRole('link', { name: 'Get started' });
     this.installationHeading = page.getByRole('heading', { name: 'Installation' });
-  }
-
-  async goto() {
-    await this.page.goto('https://playwright.dev/');
-  }
-
-  async assertTitleContains(text: string | RegExp) {
-    await expect(this.page).toHaveTitle(text);
   }
 
   async clickGetStarted() {

@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 
 export class BasePage {
   protected page: Page;
@@ -25,5 +25,9 @@ export class BasePage {
 
   async isVisible(locator: string) {
     return this.page.locator(locator).isVisible();
+  }
+
+  async assertTitleContains(text: string | RegExp) {
+    await expect(this.page).toHaveTitle(text);
   }
 }
