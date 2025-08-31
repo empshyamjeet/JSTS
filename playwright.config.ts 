@@ -8,13 +8,19 @@ export default defineConfig({
   use: {
     headless: true,
     viewport: { width: 1280, height: 720 },
-    screenshot: 'only-on-failure',
+    screenshot: 'on',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
   },
+  
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
     { name: 'firefox', use: { browserName: 'firefox' } },
     { name: 'webkit', use: { browserName: 'webkit' } },
+    {
+      name: 'smoke',
+      testMatch: ['tests/dashboard.spec.ts', 'tests/login.spec.ts'],
+      use: { browserName: 'chromium', headless: true },
+    },
   ],
 });

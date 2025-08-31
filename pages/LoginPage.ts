@@ -15,6 +15,6 @@ export class LoginPage extends BasePage {
 
   async verifyLoginSuccess() {
     // Add your verification logic after login, e.g., checking URL or UI element
-    expect(await this.page.url()).toContain('success');
+    expect(await this.page.url()).toContain('success333');
   }
 }

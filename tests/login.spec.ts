@@ -8,3 +8,5 @@ test('User can login successfully', async ({ page }) => {
   await loginPage.login('testuser', 'password123');
   await loginPage.verifyLoginSuccess();
 });
+
+ 

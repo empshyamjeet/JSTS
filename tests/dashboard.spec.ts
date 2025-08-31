@@ -2,13 +2,13 @@
 import { test } from '@playwright/test';
 import { DashboardPage } from '../pages/DashboardPage';
 
-test('has title', async ({ page }) => {
+test('has shyamjeet title @smoke @regression', async ({ page }) => {
   const dashboard = new DashboardPage(page);
   await dashboard.goto('https://playwright.dev/');
   await dashboard.assertTitleContains(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+test('shyamjeet1 get started link @regression', async ({ page }) => {
   const dashboard = new DashboardPage(page);
   await dashboard.goto('https://playwright.dev/');
   await dashboard.clickGetStarted();

@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "test": "playwright test",
-  "test:headed": "playwright test --headed",
-  "test:report": "playwright show-report"
-},
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/empshyamjeet/JSTS.git"
