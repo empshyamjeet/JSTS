@@ -139,7 +139,7 @@ npx playwright test -g "@smoke"
 After test execution, generate and open rich HTML reports with:
 
 ```bash
-npx playwright show-report
+npx playwright test --reporter=html      
 ```
 
 Reports show:
