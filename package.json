@@ -1,26 +1,18 @@
 {
-  "name": "jsts",
+  "name": "my-playwright-ts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/empshyamjeet/JSTS.git"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/empshyamjeet/JSTS/issues"
-  },
-  "homepage": "https://github.com/empshyamjeet/JSTS#readme",
   "devDependencies": {
-    "@playwright/test": "^1.55.0"
+    "@playwright/test": "^1.55.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }

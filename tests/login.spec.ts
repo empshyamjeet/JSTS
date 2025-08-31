@@ -7,6 +7,7 @@ test('User can login successfully', async ({ page }) => {
   await loginPage.goto('https://demo.guru99.com/test/login.html');
   await loginPage.login('testuser', 'password123');
   await loginPage.verifyLoginSuccess();
+
 });
 
  
