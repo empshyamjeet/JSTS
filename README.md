@@ -1,28 +1,24 @@
-Here is the updated README content including the new features and improvements you implemented in your Playwright TypeScript Automation Framework:
-
 ---
-
 # Playwright TypeScript Automation Framework
 
-A robust, scalable automation framework for modern web applications using [Playwright](https://playwright.dev/) with TypeScript. This framework demonstrates best practices including Page Object Model (POM), modular folder structure, easy configuration for cross-browser, parallel, screenshot capturing, enriched reporting, and CI-ready testing.
-
+A robust, scalable automation framework for modern web applications using [Playwright](https://playwright.dev/) with TypeScript. This framework demonstrates best practices such as the Page Object Model (POM), modular folder structure, configuration for cross-browser and parallel test execution, screenshot capturing, enriched reporting, and CI-ready setup.
 ---
 
 ## 🚀 Features
 
 - **Cross-browser testing** (Chromium, Firefox, WebKit)
-- **TypeScript** for strong typing and maintainability
-- **Page Object Model (POM)** for organized, reusable code with a BasePage for common actions
-- **Headless/Headed execution** modes
-- **Parallel test execution** for faster runs
-- **Test grouping** with `test.describe` for feature-wise organization
-- **Tag-based filtering** for running Smoke or Regression suites
-- **Automatic screenshots** captured on test failure (configurable to capture on all tests)
+- **Strong typing** and maintainability with TypeScript
+- **Page Object Model (POM)** using a shared BasePage for reusable actions
+- **Headless/Headed execution** support
+- **Parallel test execution** for speed
+- **Test grouping** with `test.describe`
+- **Tag-based filtering** for running suites (e.g., Smoke/Regression)
+- **Automatic screenshots** on failure (or for all tests, if configured)
 - **Rich HTML test reporting** with embedded screenshots and videos
-- **Video recording and tracing** to aid debugging flaky tests
-- **Test data reading and utility support**
-- **Configurable browser management** via Playwright projects
-- **Support for all types of web elements using Playwright selectors**
+- **Video recording and tracing** for debugging
+- **Data-driven test support** via JSON/TS/JS files
+- **Flexible browser management** using Playwright projects
+- **Comprehensive web element coverage using Playwright selectors**
 
 ---
 
@@ -39,13 +35,13 @@ A robust, scalable automation framework for modern web applications using [Playw
 
 ```
 .
-├── pages/               # POM classes, includes BasePage.ts and specific page classes
+├── pages/               # Page Object Model classes
 │   ├── BasePage.ts
 │   └── DashboardPage.ts
-├── tests/               # Test spec files organized and grouped via describe
+├── tests/               # Test specs (grouped with describe/feature)
 │   └── dashboard.spec.ts
-├── utils/               # Utilities (e.g., test data readers)
-├── playwright.config.ts # Centralized Playwright config with projects, retries, screenshots, reporting
+├── utils/               # Utility modules (e.g., test data files/readers)
+├── playwright.config.ts # Playwright configuration
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -98,10 +94,9 @@ npx playwright test -g "@smoke"
 
 ## 🧩 Writing Tests
 
-- Create spec files in `tests/` folder
-- Use Page Object classes from `pages/` for clean, maintainable test logic
-- Organize related tests using `test.describe` blocks to group by feature
-- Example:
+- Place spec files in `tests/`
+- Use Page Object classes from `pages/` to keep tests concise and maintainable
+- Use `test.describe` to group feature-related tests
 
   ```typescript
   import { test } from "@playwright/test";
@@ -127,35 +122,29 @@ npx playwright test -g "@smoke"
 
 ## ⚙️ Configuration
 
-- `playwright.config.ts` manages test directory, retries, parallel runs, and cross-browser projects.
-- Screenshots are automatically captured on test failure (configurable).
-- Video recording and trace collection enabled for debugging flaky tests.
-- You can define multiple projects to test different browsers and suites.
+- All global settings including folder structure, retries, parallelization, and browser projects are managed in `playwright.config.ts`.
+- Screenshots and video capture are configured in the `use` section and reports are built automatically.
 
 ---
 
 ## 📊 View HTML Test Reports
 
-After test execution, generate and open rich HTML reports with:
+After test execution, view your HTML report with:
 
 ```bash
-npx playwright test --reporter=html      
+npx playwright show-report
 ```
 
-Reports show:
-
-- Test summaries with passed/failed/skipped counts
-- Embedded screenshots for failed tests
-- Videos and trace files for deeper analysis
+Your report includes summaries, screenshots of failures, and videos/traces for debugging.
 
 ---
 
 ## 🔗 Additional Resources
 
 - [Playwright Official Docs](https://playwright.dev/docs/intro)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [TypeScript Docs](https://www.typescriptlang.org/docs/)
 - [Playwright POM Guide](https://playwright.dev/docs/pom)
-- [Playwright Test Tagging and Filtering](https://playwright.dev/docs/test-tags)
+- [Test Tagging & Filtering](https://playwright.dev/docs/test-tags)
 
 ---
 
@@ -172,8 +161,3 @@ Reports show:
 Happy Testing with Playwright and TypeScript! 🎉
 
 ---
-
-If you want, I can help generate this as a formatted markdown file for direct GitHub use.
-
-Sources
-[1] Playwright: Fast and reliable end-to-end testing for modern web apps https://playwright.dev
