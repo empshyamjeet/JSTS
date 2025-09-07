@@ -1,4 +1,3 @@
-// pages/DashboardPage.ts
 import { expect, Locator, Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
@@ -13,10 +12,10 @@ export class DashboardPage extends BasePage {
   }
 
   async clickGetStarted() {
-    await this.getStartedLink.click();
+    await this.click(this.getStartedLink); // Robust base method
   }
 
   async expectInstallationHeadingVisible() {
-    await expect(this.installationHeading).toBeVisible();
+    await this.assertVisible(this.installationHeading); // Robust base method
   }
 }

@@ -10,7 +10,7 @@ export default defineConfig({
     ['html', { open: 'always', outputFolder: 'reports/html' }],
   ],
   use: {
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',

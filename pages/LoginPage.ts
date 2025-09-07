@@ -1,4 +1,3 @@
-// pages/LoginPage.ts
 import { expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 
@@ -8,15 +7,15 @@ export class LoginPage extends BasePage {
   private loginBtn = '#SubmitLogin';
 
   async login(username: string, password: string) {
-    await console.log(`Logging in with username: ${username}`);
-    await console.log(`Logging in with password: ${password}`);
-    await this.type(this.usernameInput, username);
-    await this.type(this.passwordInput, password);
+    console.log(`Logging in with username: ${username}`);
+    await this.clearAndType(this.usernameInput, username);
+    await this.clearAndType(this.passwordInput, password);
     await this.click(this.loginBtn);
   }
 
   async verifyLoginSuccess() {
-    // Add your verification logic after login, e.g., checking URL or UI element
-    expect(await this.page.url()).toContain('success');
+    // Sample: check for a successful URL or element visible
+    await expect(this.page).toHaveURL(/success/i);
+    // Optionally: await this.assertVisible('selector-for-success-element');
   }
 }
