@@ -1,14 +1,16 @@
-import { expect, Page, Locator } from '@playwright/test';
+import { expect, Page, Locator, BrowserContext } from "@playwright/test";
 
 export class BasePage {
   protected page: Page;
+  protected context: BrowserContext;
 
   constructor(page: Page) {
     this.page = page;
+    this.context = page.context();
   }
 
   async goto(url: string) {
-    await this.page.goto(url, { waitUntil: 'domcontentloaded' });
+    await this.page.goto(url, { waitUntil: "domcontentloaded" });
   }
 
   async getTitle(): Promise<string> {
@@ -16,42 +18,49 @@ export class BasePage {
   }
 
   async click(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'visible', timeout: 10000 });
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "visible", timeout: 10000 });
     await el.click();
   }
 
   async doubleClick(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'visible', timeout: 10000 });
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "visible", timeout: 10000 });
     await el.dblclick();
   }
 
   async type(locator: string | Locator, text: string) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'visible', timeout: 10000 });
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "visible", timeout: 10000 });
     await el.fill(text);
   }
 
   async clearAndType(locator: string | Locator, text: string) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'visible', timeout: 10000 });
-    await el.fill('');
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "visible", timeout: 10000 });
+    await el.fill("");
     await el.fill(text);
   }
 
   async isVisible(locator: string | Locator): Promise<boolean> {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     return await el.isVisible();
   }
 
   async isChecked(locator: string | Locator): Promise<boolean> {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     return await el.isChecked();
   }
 
   async setCheckbox(locator: string | Locator, shouldCheck = true) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     if (shouldCheck) {
       await el.check();
     } else {
@@ -60,38 +69,45 @@ export class BasePage {
   }
 
   async selectDropdownByText(locator: string | Locator, text: string) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await el.selectOption({ label: text });
   }
 
   async selectDropdownByValue(locator: string | Locator, value: string) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await el.selectOption({ value });
   }
 
   async hover(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await el.hover();
   }
 
   async scrollIntoView(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await el.scrollIntoViewIfNeeded();
   }
 
   async getText(locator: string | Locator): Promise<string> {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'visible', timeout: 10000 });
-    return await el.textContent() ?? '';
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "visible", timeout: 10000 });
+    return (await el.textContent()) ?? "";
   }
 
   async assertTextContains(locator: string | Locator, text: string | RegExp) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await expect(el).toContainText(text);
   }
 
   async assertVisible(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await expect(el).toBeVisible();
   }
 
@@ -100,21 +116,45 @@ export class BasePage {
   }
 
   async refresh() {
-    await this.page.reload({ waitUntil: 'domcontentloaded' });
+    await this.page.reload({ waitUntil: "domcontentloaded" });
   }
 
-  async getAttribute(locator: string | Locator, attr: string): Promise<string | null> {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+  async getAttribute(
+    locator: string | Locator,
+    attr: string
+  ): Promise<string | null> {
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     return await el.getAttribute(attr);
   }
 
   async uploadFile(locator: string | Locator, filePath: string) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
     await el.setInputFiles(filePath);
   }
 
   async waitForHidden(locator: string | Locator) {
-    const el = typeof locator === 'string' ? this.page.locator(locator) : locator;
-    await el.waitFor({ state: 'hidden', timeout: 10000 });
+    const el =
+      typeof locator === "string" ? this.page.locator(locator) : locator;
+    await el.waitFor({ state: "hidden", timeout: 10000 });
+  }
+
+  /**
+   * Switch to window/tab by 1-based index.
+   * @param index - window index (1 = first window)
+   * @returns Promise<string> success or error message
+   */
+  async moveToWindow(index: number): Promise<string> {
+    const pages = this.context.pages();
+    if (index < 1 || index > pages.length) {
+      return `Invalid window index: ${index}. Total windows: ${pages.length}`;
+    }
+
+    const targetPage = pages[index - 1];
+    this.page = targetPage;
+    await this.page.bringToFront(); // focus the tab
+
+    return `Switched to window ${index} with URL: ${this.page.url()}`;
   }
 }
