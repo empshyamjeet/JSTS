@@ -1,0 +1,26 @@
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="23.349531">
+<testsuite name="e2e/automation-practice.spec.ts" timestamp="2026-03-16T07:00:25.087Z" hostname="chromium" tests="5" failures="0" skipped="0" time="16.98" errors="0">
+<testcase name="Automation practice flows @regression › should complete the sample form @smoke" classname="e2e/automation-practice.spec.ts" time="2.645">
+</testcase>
+<testcase name="Automation practice flows @regression › should open the external popup page" classname="e2e/automation-practice.spec.ts" time="5.631">
+</testcase>
+<testcase name="Automation practice flows @regression › should update the date picker value" classname="e2e/automation-practice.spec.ts" time="2.856">
+</testcase>
+<testcase name="Automation practice flows @regression › should select a country by label" classname="e2e/automation-practice.spec.ts" time="2.903">
+</testcase>
+<testcase name="Automation practice flows @regression › should verify the Selenium book row" classname="e2e/automation-practice.spec.ts" time="2.945">
+</testcase>
+</testsuite>
+<testsuite name="e2e/login.spec.ts" timestamp="2026-03-16T07:00:25.087Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.553" errors="0">
+<testcase name="Login flow @smoke @regression › should login with the configured valid user" classname="e2e/login.spec.ts" time="2.028">
+</testcase>
+<testcase name="Login flow @smoke @regression › should display the login form controls" classname="e2e/login.spec.ts" time="1.525">
+</testcase>
+</testsuite>
+<testsuite name="smoke/playwright-docs.spec.ts" timestamp="2026-03-16T07:00:25.087Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.104" errors="0">
+<testcase name="Playwright docs smoke @smoke › should load the documentation landing page" classname="smoke/playwright-docs.spec.ts" time="1.139">
+</testcase>
+<testcase name="Playwright docs smoke @smoke › should open the getting started guide" classname="smoke/playwright-docs.spec.ts" time="0.965">
+</testcase>
+</testsuite>
+</testsuites>
