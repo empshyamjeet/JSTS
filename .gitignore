@@ -5,3 +5,9 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/reports/
+/coverage/
+/artifacts/
+/practice-page.png
+/.env.local
+/.DS_Store
