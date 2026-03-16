@@ -7,9 +7,20 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "types": ["node"],
     "outDir": "dist",
     "sourceMap": true
   },
-  "include": ["tests/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    ".github/**/*.ts",
+    "config/**/*.ts",
+    "docs/**/*.ts",
+    "fixtures/**/*.ts",
+    "playwright.config.ts",
+    "pages/**/*.ts",
+    "test-data/**/*.ts",
+    "tests/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "exclude": ["dist", "node_modules", "reports", "test-results"]
 }

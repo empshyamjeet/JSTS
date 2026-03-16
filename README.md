@@ -1,163 +1,94 @@
----
-# Playwright TypeScript Automation Framework
+# Client-Ready Playwright Framework
 
-A robust, scalable automation framework for modern web applications using [Playwright](https://playwright.dev/) with TypeScript. This framework demonstrates best practices such as the Page Object Model (POM), modular folder structure, configuration for cross-browser and parallel test execution, screenshot capturing, enriched reporting, and CI-ready setup.
----
+This repository is a clean Playwright + TypeScript starter framework that you can use for client delivery, onboarding, and KT. It keeps the current public demo coverage, but the project structure, fixtures, configuration, reporting, and documentation now follow a reusable framework pattern instead of a single-purpose demo suite.
 
-## 🚀 Features
+## What is included
 
-- **Cross-browser testing** (Chromium, Firefox, WebKit)
-- **Strong typing** and maintainability with TypeScript
-- **Page Object Model (POM)** using a shared BasePage for reusable actions
-- **Headless/Headed execution** support
-- **Parallel test execution** for speed
-- **Test grouping** with `test.describe`
-- **Tag-based filtering** for running suites (e.g., Smoke/Regression)
-- **Automatic screenshots** on failure (or for all tests, if configured)
-- **Rich HTML test reporting** with embedded screenshots and videos
-- **Video recording and tracing** for debugging
-- **Data-driven test support** via JSON/TS/JS files
-- **Flexible browser management** using Playwright projects
-- **Comprehensive web element coverage using Playwright selectors**
+- Environment-aware configuration with `.env` layering
+- Reusable fixtures for shared page objects
+- Page object model for each sample application
+- Typed test-data builders
+- Smoke and regression test grouping with tags
+- HTML and JUnit reporting
+- Type checking, linting, and formatting scripts
+- GitHub Actions CI starter workflow
+- Client KT guide for onboarding and handoff
 
----
+## Project structure
 
-## 🛠️ Tech Stack
-
-- [Playwright](https://playwright.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- Node.js (v18+ recommended)
-- Visual Studio Code or any IDE
-
----
-
-## 📁 Project Structure
-
-```
+```text
 .
-├── pages/               # Page Object Model classes
-│   ├── BasePage.ts
-│   └── DashboardPage.ts
-├── tests/               # Test specs (grouped with describe/feature)
-│   └── dashboard.spec.ts
-├── utils/               # Utility modules (e.g., test data files/readers)
-├── playwright.config.ts # Playwright configuration
-├── package.json
-├── tsconfig.json
-└── README.md
+├── .github/workflows/          # CI pipeline
+├── config/                     # Environment and framework config
+├── docs/                       # KT and handoff material
+├── fixtures/                   # Shared Playwright fixtures
+├── pages/                      # Page objects
+├── test-data/                  # Typed test data and builders
+├── tests/
+│   ├── e2e/                    # Functional regression flows
+│   └── smoke/                  # Quick confidence checks
+├── playwright.config.ts        # Playwright runner configuration
+├── package.json                # Scripts and dependencies
+└── tsconfig.json               # TypeScript configuration
 ```
 
----
+## Quick start
 
-## ⚡ Quick Start
-
-### 1. Clone & Install
+1. Install dependencies.
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
 npm install
-npx playwright install
 ```
 
-### 2. Run All Tests
+2. Install the required Playwright browsers.
 
 ```bash
-npm run test
+npx playwright install chromium
 ```
 
-### 3. Run in Headed Mode (to see browser UI)
+3. Copy environment defaults when you need local overrides.
 
 ```bash
-npm run test:headed
+cp .env.example .env.local
 ```
 
-### 4. Run a Specific Test File
+4. Run the test suite.
 
 ```bash
-npx playwright test tests/dashboard.spec.ts
+npm test
 ```
 
-### 5. Run a Specific Test by Name
+## Scripts
 
-```bash
-npx playwright test -g "has title"
-```
+- `npm test` runs the full suite.
+- `npm run test:smoke` runs tests tagged with `@smoke`.
+- `npm run test:regression` runs tests tagged with `@regression`.
+- `npm run test:headed` opens the browser UI during execution.
+- `npm run test:list` lists the discovered test cases.
+- `npm run typecheck` validates all TypeScript sources.
+- `npm run lint` runs ESLint.
+- `npm run format` checks formatting.
+- `npm run format:write` writes formatting fixes.
 
-### 6. Run Tests by Tag (e.g., Smoke Suite)
+## Environment model
 
-```bash
-npx playwright test -g "@smoke"
-```
+The framework reads configuration in this order:
 
----
+1. `.env`
+2. `.env.<TEST_ENV>`
+3. `.env.local`
+4. process environment variables
 
-## 🧩 Writing Tests
+Supported sample environments are `qa`, `uat`, and `prod`. Use `TEST_ENV=uat npm test` when you want to switch profiles.
 
-- Place spec files in `tests/`
-- Use Page Object classes from `pages/` to keep tests concise and maintainable
-- Use `test.describe` to group feature-related tests
+## Test design rules
 
-  ```typescript
-  import { test } from "@playwright/test";
-  import { DashboardPage } from "../pages/DashboardPage";
+- Keep selectors inside page objects.
+- Keep test data in `test-data/`.
+- Use fixtures from `fixtures/testFixtures.ts`.
+- Prefer stable Playwright locators and assertion-based waits.
+- Tag tests using `@smoke` and `@regression`.
 
-  test.describe("Dashboard Feature", () => {
-    test("has title", async ({ page }) => {
-      const dashboard = new DashboardPage(page);
-      await dashboard.goto("https://playwright.dev/");
-      await dashboard.assertTitleContains(/Playwright/);
-    });
+## KT docs
 
-    test("get started link", async ({ page }) => {
-      const dashboard = new DashboardPage(page);
-      await dashboard.goto("https://playwright.dev/");
-      await dashboard.clickGetStarted();
-      await dashboard.expectInstallationHeadingVisible();
-    });
-  });
-  ```
-
----
-
-## ⚙️ Configuration
-
-- All global settings including folder structure, retries, parallelization, and browser projects are managed in `playwright.config.ts`.
-- Screenshots and video capture are configured in the `use` section and reports are built automatically.
-
----
-
-## 📊 View HTML Test Reports
-
-After test execution, view your HTML report with:
-
-```bash
-npx playwright show-report
-```
-
-Your report includes summaries, screenshots of failures, and videos/traces for debugging.
-
----
-
-## 🔗 Additional Resources
-
-- [Playwright Official Docs](https://playwright.dev/docs/intro)
-- [TypeScript Docs](https://www.typescriptlang.org/docs/)
-- [Playwright POM Guide](https://playwright.dev/docs/pom)
-- [Test Tagging & Filtering](https://playwright.dev/docs/test-tags)
-
----
-
-## 💡 Contributing
-
-1. Fork this repo
-2. Create your feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to your branch (`git push origin feature/your-feature`)
-5. Open a Pull Request for review
-
----
-
-Happy Testing with Playwright and TypeScript! 🎉
-
----
+The client handoff material lives in [docs/CLIENT_KT.md](/Volumes/private/JSTS/docs/CLIENT_KT.md).
