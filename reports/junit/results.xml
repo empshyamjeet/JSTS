@@ -1,26 +1,26 @@
-<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="24.725265">
-<testsuite name="e2e/automation-practice.spec.ts" timestamp="2026-03-16T10:50:06.926Z" hostname="chromium" tests="5" failures="0" skipped="0" time="18.201" errors="0">
-<testcase name="Automation practice flows @regression › should complete the sample form @smoke" classname="e2e/automation-practice.spec.ts" time="3.295">
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="24.067876000000002">
+<testsuite name="e2e/automation-practice.spec.ts" timestamp="2026-03-16T11:02:43.965Z" hostname="chromium" tests="5" failures="0" skipped="0" time="17.551" errors="0">
+<testcase name="Automation practice flows @regression › should complete the sample form @smoke" classname="e2e/automation-practice.spec.ts" time="3.183">
 </testcase>
-<testcase name="Automation practice flows @regression › should open the external popup page" classname="e2e/automation-practice.spec.ts" time="5.598">
+<testcase name="Automation practice flows @regression › should open the external popup page" classname="e2e/automation-practice.spec.ts" time="5.3">
 </testcase>
-<testcase name="Automation practice flows @regression › should update the date picker value" classname="e2e/automation-practice.spec.ts" time="2.818">
+<testcase name="Automation practice flows @regression › should update the date picker value" classname="e2e/automation-practice.spec.ts" time="3.367">
 </testcase>
-<testcase name="Automation practice flows @regression › should select a country by label" classname="e2e/automation-practice.spec.ts" time="3.619">
+<testcase name="Automation practice flows @regression › should select a country by label" classname="e2e/automation-practice.spec.ts" time="2.827">
 </testcase>
-<testcase name="Automation practice flows @regression › should verify the Selenium book row" classname="e2e/automation-practice.spec.ts" time="2.871">
-</testcase>
-</testsuite>
-<testsuite name="e2e/login.spec.ts" timestamp="2026-03-16T10:50:06.926Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.583" errors="0">
-<testcase name="Login flow @smoke @regression › should login with the configured valid user" classname="e2e/login.spec.ts" time="2.036">
-</testcase>
-<testcase name="Login flow @smoke @regression › should display the login form controls" classname="e2e/login.spec.ts" time="1.547">
+<testcase name="Automation practice flows @regression › should verify the Selenium book row" classname="e2e/automation-practice.spec.ts" time="2.874">
 </testcase>
 </testsuite>
-<testsuite name="smoke/playwright-docs.spec.ts" timestamp="2026-03-16T10:50:06.926Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.317" errors="0">
-<testcase name="Playwright docs smoke @smoke › should load the documentation landing page" classname="smoke/playwright-docs.spec.ts" time="1.55">
+<testsuite name="e2e/login.spec.ts" timestamp="2026-03-16T11:02:43.965Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.648" errors="0">
+<testcase name="Login flow @smoke @regression › should login with the configured valid user" classname="e2e/login.spec.ts" time="2.066">
 </testcase>
-<testcase name="Playwright docs smoke @smoke › should open the getting started guide" classname="smoke/playwright-docs.spec.ts" time="0.767">
+<testcase name="Login flow @smoke @regression › should display the login form controls" classname="e2e/login.spec.ts" time="1.582">
+</testcase>
+</testsuite>
+<testsuite name="smoke/playwright-docs.spec.ts" timestamp="2026-03-16T11:02:43.965Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.225" errors="0">
+<testcase name="Playwright docs smoke @smoke › should load the documentation landing page" classname="smoke/playwright-docs.spec.ts" time="1.48">
+</testcase>
+<testcase name="Playwright docs smoke @smoke › should open the getting started guide" classname="smoke/playwright-docs.spec.ts" time="0.745">
 </testcase>
 </testsuite>
 </testsuites>
